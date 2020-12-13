@@ -4,6 +4,6 @@ import {router} from "./routes/index";
 const app:any = express();
 router(app);
 
-app.listen(3000, ()=> {
-	console.log("server on port 3000");
+app.listen(4000, ()=> {
+	console.log("server on port 4000");
 });

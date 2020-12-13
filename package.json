@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "start": "npm run build && node dist/bundle.js",
+    "build": "webpack --watch",
+    "start": "node dist/bundle.js",
     "dev": "tsc src/index.ts"
   },
   "keywords": [],
