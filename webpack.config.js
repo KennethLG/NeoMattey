@@ -1,6 +1,5 @@
-const path = require("path");
+/*const path = require("path");
 const nodeExternals = require("webpack-node-externals");
-const webpack = require("webpack");
 
 module.exports = {
 	entry: "./src/index.ts",
@@ -25,6 +24,49 @@ module.exports = {
 		publicPath: "dist",
 		filename: "bundle.js",
 		path: path.resolve(__dirname, "dist")
-	},
-	plugins: [new webpack.HotModuleReplacementPlugin()]
-}
+	}
+}*/
+
+const webpack = require("webpack");
+const path = require("path");
+const nodeExternals = require("webpack-node-externals");
+
+var config = {
+    mode: "development",
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: "ts-loader",
+                exclude: /node_modules/
+            }
+        ]
+    },
+    resolve: {
+        extensions: [".tsx", ".ts", ".js"],
+        modules: ["src", "node_modules"]
+    }
+};
+
+var client = Object.assign({}, config, {
+    name: "client",
+    target: "web",
+    entry: path.resolve(__dirname, "src/client/index.tsx"),
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "dist")
+    }
+});
+
+var server = Object.assign({}, config, {
+    name: "server",
+    target: "node",
+    externals: [nodeExternals()],
+    entry: path.resolve(__dirname, "src/server/index.ts"),
+    output: {
+        filename: "server.js",
+        path: path.resolve(__dirname, "dist")
+    }
+});
+
+module.exports = [client, server];
