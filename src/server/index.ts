@@ -1,14 +1,15 @@
 import express from "express";
 import path from "path";
+import {router} from "./routes/index";
+import {config} from "./config";
 
 const app:any = express();
 
 app.use(express.static("dist"));
 
-app.get("*", (req: express.Request, res: express.Response) => {
-	res.sendFile(path.resolve(__dirname, "index.html"));
-});
+//routes
+router(app);
 
-app.listen(4000, ()=> {
-	console.log("server on port 4000");
+app.listen(config.port, ()=> {
+	console.log(`Server started on port ${config.port}`);
 });

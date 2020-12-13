@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --watch",
-    "start": "node dist/bundle.js",
-    "dev": "tsc src/index.ts"
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
