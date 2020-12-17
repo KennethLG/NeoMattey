@@ -22,9 +22,9 @@ const fetchState = () => {
 }
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
-store.subscribe(() => {
+/*store.subscribe(() => {
 	console.log(store.getState());
-});
+});*/
 store.dispatch(fetchState());
 
 render(

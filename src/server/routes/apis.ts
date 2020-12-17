@@ -8,7 +8,6 @@ export const videosApi = (app:any, router:any) => {
 	router.get("/", async (req: express.Request, res: express.Response, next: express.NextFunction) => {
 		try {
 				const videos: any = await videosService.getVideos();
-				console.log(videos);
 				res.status(200).json({
 					data: videos,
 					msg: "videos"

@@ -14,6 +14,7 @@ export const reducer = (state: any = initalState, action: any) => {
 		case "FETCH_VIDEOS_REQUEST":
 			return {
 				...state,
+				videos: [],
 				loading: true
 			}
 
