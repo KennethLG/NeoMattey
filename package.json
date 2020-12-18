@@ -5,9 +5,9 @@
   "private": true,
   "homepage": "https://kennethlg.github.io/NeoMattey/",
   "scripts": {
+    "start": "node dist/server.js",
     "build": "webpack",
-    "start": "nodemon dist/server.js",
-    "deploy": "gh-pages -d dist"
+    "build:start": "webpack && node dist/server.js"
   },
   "keywords": [],
   "author": "",
