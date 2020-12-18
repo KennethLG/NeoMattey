@@ -2,8 +2,7 @@
   "name": "mattey",
   "version": "1.0.0",
   "description": "",
-  "private": true,
-  "homepage": "https://kennethlg.github.io/NeoMattey/",
+  "main": "src/server/index.ts",
   "scripts": {
     "start": "node dist/server.js",
     "build": "webpack",

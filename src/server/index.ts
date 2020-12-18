@@ -25,3 +25,5 @@ app.get("*", async (req: express.Request, res: express.Response, next: express.N
 app.listen(config.port, ()=> {
 	console.log(`Server started on port ${config.port}`);
 });
+
+export default app;
