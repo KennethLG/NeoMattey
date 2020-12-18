@@ -2,9 +2,11 @@ import express from "express";
 import path from "path";
 import {videosApi} from "./routes/apis";
 import {config} from "./config";
+import cors from "cors";
 
 const app:any = express();
 
+app.use(cors());
 app.use(express.static("dist"));
 
 //routes
