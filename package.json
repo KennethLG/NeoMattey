@@ -5,7 +5,7 @@
   "main": "src/server/index.ts",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "webpack --watch",
+    "build": "webpack",
     "build:start": "webpack && node dist/server.js"
   },
   "keywords": [],
