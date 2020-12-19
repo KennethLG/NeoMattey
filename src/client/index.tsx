@@ -12,7 +12,7 @@ import {fetchVideosRequest, fetchVideosFailure, fetchVideosSucces} from "./actio
 const fetchState = () => {
 	return function(dispatch) {
 		dispatch(fetchVideosRequest());
-		axios.get("http://localhost:5000/api/videos")
+		axios.get("https://neomattey.herokuapp.com/api/videos")
 		.then(res => {
 			dispatch(fetchVideosSucces(res.data));
 		}).catch(error => {
