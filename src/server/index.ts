@@ -6,8 +6,10 @@ import cors from "cors";
 
 const app:any = express();
 
+// Middlewares
 app.use(cors());
 app.use(express.static("dist"));
+app.use(express.json());
 
 //routes
 const router:any = express.Router();

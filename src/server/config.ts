@@ -6,5 +6,8 @@ export const config: any = {
 	dbUser: process.env.DB_USER,
 	dbName: process.env.DB_NAME,
 	dbPsw: process.env.DB_PSW,
-	dbHost: process.env.DB_HOST
+	dbHost: process.env.DB_HOST,
+	email: process.env.EMAIL,
+	emailPsw: process.env.EMAIL_PASSWORD,
+	emailTo: process.env.EMAIL_TO
 }

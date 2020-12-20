@@ -52,10 +52,11 @@ export const fetchState = () => {
 	}
 }
 
-export const getVideosTag = (tag:string) => {
+export const getVideosTag = (tag?:string) => {
 	return dispatch => {
+		const query = tag ? `?tag=${tag}` : "";
 		dispatch(tagVideosRequest());
-		axios.get(`http://localhost:5000/api/videos?tag=${tag}`)
+		axios.get(`http://localhost:5000/api/videos${query}`)
 		.then(res => {
 			dispatch(tagVideosSucces(res.data));
 		}).catch(error => {
