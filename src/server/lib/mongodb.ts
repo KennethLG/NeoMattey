@@ -32,7 +32,13 @@ export class MongoLib {
 		return this.connection;
 	}
 
-	getAll(collection: string) {
+	getAll(collection: string, query:any) {
+		return this.connect().then(db=> {
+			return db.collection(collection).find(query).toArray();
+		});
+	}
+
+	getNewVideos(collection: string) {
 		return this.connect().then(db=> {
 			return db.collection(collection).find({}).toArray();
 		});

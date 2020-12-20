@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node dist/server.js",
     "build": "webpack",
-    "build:start": "webpack && node dist/server.js"
+    "build:start": "webpack && node dist/server.js",
+    "watch": "webpack --watch"
   },
   "keywords": [],
   "author": "",

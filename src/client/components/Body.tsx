@@ -1,18 +1,26 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ImgBody from "../assets/portada.jpg";
-import {connect} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchState} from "../actions/index";
 
-const Body = (props:any) => {
+export const Body = () => {
+	const dispatch = useDispatch();
+	const videos = useSelector((state) => state.videos);
+
+	useEffect(() => {
+		if (!videos) dispatch(fetchState());
+	}, [videos]);
+
 	return(
 		<div className="body">
 			<img className="imageHome" src={ImgBody}></img>
-			<div className="bigTitle">Lastest videos</div>
-			<div style={{textAlign: "center"}}>
+			<div className="bigTitle">Latest videos</div>
+			<div className="videos-container">
 				{
-					props.videos.length !== 0 && props.videos.data.map(item =>
-						<div style={{textAlign: "center"}} key={item._id}>
-							<iframe className={"video"} width="100%" height="100%"
-						  	src={`https://www.youtube.com/embed/${item.videoId}?enablejsapi=1&origin=https://mattey-evpjop81u.vercel.app`}/>
+					videos && videos.data.map(item => 
+						<div className="video-container" key={item._id}>
+							<iframe className="video"
+						  	src={`https://www.youtube.com/embed/${item.videoId}?enablejsapi=1&origin=https://localhost:5000`}/>
 						</div>
 					)
 				}
@@ -20,11 +28,3 @@ const Body = (props:any) => {
 		</div>
 	)
 }
-
-const mapStateToProps = state => {
-  return {
-  	videos: state.videos
-  }
-};
-
-export default connect(mapStateToProps, null)(Body);

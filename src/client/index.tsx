@@ -9,23 +9,7 @@ import {reducer} from "./reducers/index";
 import thunkMiddleware from "redux-thunk";
 import {fetchVideosRequest, fetchVideosFailure, fetchVideosSucces} from "./actions/index";
 
-const fetchState = () => {
-	return function(dispatch) {
-		dispatch(fetchVideosRequest());
-		axios.get("https://neomattey.herokuapp.com/api/videos")
-		.then(res => {
-			dispatch(fetchVideosSucces(res.data));
-		}).catch(error => {
-			fetchVideosFailure(error.message);
-		});
-	}
-}
-
 const store = createStore(reducer, applyMiddleware(thunkMiddleware));
-/*store.subscribe(() => {
-	console.log(store.getState());
-});*/
-store.dispatch(fetchState());
 
 render(
 	<Provider store={store}>

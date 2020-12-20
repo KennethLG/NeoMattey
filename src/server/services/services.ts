@@ -9,8 +9,9 @@ export class VideosService {
 		this.mongodbLib = new MongoLib();
 	}
 
-	async getVideos () {
-		const videos: any = this.mongodbLib.getAll(this.collection);
+	async getVideos (tag:any) {
+		const query = tag ? {tag: { $in : [tag]}} : {};
+		const videos: any = this.mongodbLib.getAll(this.collection, query);
 		return videos || [];
 	}
 } 

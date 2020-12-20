@@ -7,10 +7,24 @@ export const videosApi = (app:any, router:any) => {
 
 	router.get("/videos", async (req: express.Request, res: express.Response, next: express.NextFunction) => {
 		try {
-			const videos: any = await videosService.getVideos();
+			const {tag} = req.query;
+			const videos: any = await videosService.getVideos(tag);
 			res.status(200).json({
 				data: videos,
-				msg: "videos"
+				msg: "videos listed"
+			})
+		} catch (e) {
+			console.error(e);
+			next(e);
+		}
+	});
+
+	router.get("/news", async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+		try {
+			const videos: any = await videosService.getVideos();
+			res.status(200).json({
+				data: [videos[0], videos[1], videos[2], videos[3], videos[4]],
+				msg: "new videos listed"
 			})
 		} catch (e) {
 			console.error(e);
@@ -20,7 +34,7 @@ export const videosApi = (app:any, router:any) => {
 
 	router.get("*", async (req, res, next) => {
 		try {
-			res.status(404).send("Not found xd");
+			res.status(404).send("404 NOT FOUND :(");
 		} catch(e) {
 			console.error(e);
 			next(e);

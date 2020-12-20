@@ -16,10 +16,10 @@ export const Navbar: any = () => {
 		<div>
 			<div id="mySidebar" className="sidebar">
 				<a className="closebtn" onClick={toggleNav}>×</a>
-				<Link className="sidebar-item" to="/">Home</Link>
-				<Link className="sidebar-item" to="/videos">Videos</Link>
-				<Link className="sidebar-item" to="/subscribe">Subscribe</Link>
-				<Link className="sidebar-item" to="/contact">Contact</Link>
+				<Link className="sidebar-item" to="/" onClick={toggleNav}>Home</Link>
+				<Link className="sidebar-item" to="/videos" onClick={toggleNav}>Videos</Link>
+				<Link className="sidebar-item" to="/subscribe" onClick={toggleNav}>Subscribe</Link>
+				<Link className="sidebar-item" to="/contact" onClick={toggleNav}>Contact</Link>
 			</div>
 			<div className="navbar">
 				<Link to="/" className="navbar-link-home"><strong>NeoMattey</strong></Link>
