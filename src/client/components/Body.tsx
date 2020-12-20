@@ -19,7 +19,7 @@ export const Body = () => {
 					videos && videos.data.map(item => 
 						<div className="video-container" key={item._id}>
 							<iframe className="video"
-						  	src={`https://www.youtube.com/embed/${item.videoId}?enablejsapi=1&origin=https://localhost:5000`}/>
+						  	src={`https://www.youtube.com/embed/${item.videoId}?enablejsapi=1&origin=https://neomattey.herokuapp.com`}/>
 						</div>
 					)
 				}
