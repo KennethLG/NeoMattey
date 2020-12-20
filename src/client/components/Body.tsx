@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-import ImgBody from "../assets/portada.jpg";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchState} from "../actions/index";
 
@@ -13,7 +12,7 @@ export const Body = () => {
 
 	return(
 		<div className="body">
-			<img className="imageHome" src={ImgBody}></img>
+			
 			<div className="bigTitle">Latest videos</div>
 			<div className="videos-container">
 				{

@@ -43,7 +43,7 @@ export const tagVideosFailure = error => {
 export const fetchState = () => {
 	return dispatch => {
 		dispatch(fetchVideosRequest());
-		axios.get("http://localhost:5000/api/news")
+		axios.get("https://neomattey.herokuapp.com/api/news")
 		.then(res => {
 			dispatch(fetchVideosSucces(res.data));
 		}).catch(error => {
@@ -52,10 +52,11 @@ export const fetchState = () => {
 	}
 }
 
-export const getVideosTag = (tag:string) => {
+export const getVideosTag = (tag?:string) => {
 	return dispatch => {
+		const query = tag ? `?tag=${tag}` : "";
 		dispatch(tagVideosRequest());
-		axios.get(`http://localhost:5000/api/videos?tag=${tag}`)
+		axios.get(`https://neomattey.herokuapp.com/api/videos${query}`)
 		.then(res => {
 			dispatch(tagVideosSucces(res.data));
 		}).catch(error => {
