@@ -1,5 +1,4 @@
 import {MongoLib} from "../lib/mongodb";
-import {Nodemailer} from "../lib/nodemailer";
 
 export class VideosService {
 	public collection: string;
@@ -16,16 +15,3 @@ export class VideosService {
 		return videos || [];
 	}
 } 
-
-export class MessagesService {
-
-	public msgLib: any;
-
-	constructor() {
-		this.msgLib = new Nodemailer();
-	}
-
-	async sendMessage (data: any) {
-		this.msgLib.send(data);
-	}
-}
